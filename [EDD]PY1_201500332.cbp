@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="[EDD]PY1_201500332" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/[EDD]PY1_201500332" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/DiccionarioLDC.h" />
+		<Unit filename="include/FichasC.h" />
+		<Unit filename="include/FichasLD.h" />
+		<Unit filename="include/NodoC.h" />
+		<Unit filename="include/NodoJL.h" />
+		<Unit filename="include/NodoL.h" />
+		<Unit filename="include/NodoLD.h" />
+		<Unit filename="include/NodoLDC.h" />
+		<Unit filename="include/PuntajesJugador.h" />
+		<Unit filename="include/PuntajesL.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/DiccionarioLDC.cpp" />
+		<Unit filename="src/FichasC.cpp" />
+		<Unit filename="src/FichasLD.cpp" />
+		<Unit filename="src/NodoC.cpp" />
+		<Unit filename="src/NodoJL.cpp" />
+		<Unit filename="src/NodoL.cpp" />
+		<Unit filename="src/NodoLD.cpp" />
+		<Unit filename="src/NodoLDC.cpp" />
+		<Unit filename="src/PuntajesJugador.cpp" />
+		<Unit filename="src/PuntajesL.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
