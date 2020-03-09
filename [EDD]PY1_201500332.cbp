@@ -27,24 +27,32 @@
 		<Unit filename="include/DiccionarioLDC.h" />
 		<Unit filename="include/FichasC.h" />
 		<Unit filename="include/FichasLD.h" />
+		<Unit filename="include/NodoB.h" />
 		<Unit filename="include/NodoC.h" />
 		<Unit filename="include/NodoJL.h" />
 		<Unit filename="include/NodoL.h" />
 		<Unit filename="include/NodoLD.h" />
 		<Unit filename="include/NodoLDC.h" />
+		<Unit filename="include/NodoM.h" />
 		<Unit filename="include/PuntajesJugador.h" />
 		<Unit filename="include/PuntajesL.h" />
+		<Unit filename="include/TableroMD.h" />
+		<Unit filename="include/UsuariosA.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/DiccionarioLDC.cpp" />
 		<Unit filename="src/FichasC.cpp" />
 		<Unit filename="src/FichasLD.cpp" />
+		<Unit filename="src/NodoB.cpp" />
 		<Unit filename="src/NodoC.cpp" />
 		<Unit filename="src/NodoJL.cpp" />
 		<Unit filename="src/NodoL.cpp" />
 		<Unit filename="src/NodoLD.cpp" />
 		<Unit filename="src/NodoLDC.cpp" />
+		<Unit filename="src/NodoM.cpp" />
 		<Unit filename="src/PuntajesJugador.cpp" />
 		<Unit filename="src/PuntajesL.cpp" />
+		<Unit filename="src/TableroMD.cpp" />
+		<Unit filename="src/UsuariosA.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

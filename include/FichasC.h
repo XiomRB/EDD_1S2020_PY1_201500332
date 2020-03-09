@@ -4,15 +4,17 @@
 #include <string>
 #include <stdlib.h>
 #include "NodoC.h"
+#include <sstream>
 using namespace std;
 
 class FichasC
 {
     public:
         FichasC();
-        void insertar(char letra);
+        void insertar(char,short);
         NodoC *eliminar();
         void crearCola();
+        string dibujar();
         virtual ~FichasC();
 
     protected:
@@ -20,6 +22,8 @@ class FichasC
     private:
         NodoC *primero;
         NodoC *ultimo;
+        template <class T>
+        string intCad(T);
 };
 
 #endif // FICHASC_H

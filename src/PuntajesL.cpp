@@ -11,6 +11,7 @@ string PuntajesL::intCadena(int n){
     s<<n;
     return s.str();
 }
+
 NodoL *PuntajesL::getPrimero(){
     return this->primero;
 }

@@ -1,18 +1,17 @@
 #include <iostream>
 #include <conio.h>
-#include "FichasLD.h"
+#include "UsuariosA.h"
 using namespace std;
 
-FichasLD dic;
+UsuariosA t;
 int main()
 {
-    dic.insertar(2,'l');
-    dic.insertar(8,'a');
-    dic.insertar(2,'u');
-    dic.insertar(8,'r');
-    dic.insertar(2,'o');
-    dic.insertar(8,'p');
-    cout<<dic.dibujar();
-    getch();
+    t.insertar("gaby");
+    t.insertar("olga");
+    t.insertar("ana");
+    t.insertar("ale");
+    t.insertar("elias");
+    t.insertar("vicky");
+    cout<<t.dibujar();
     return 0;
 }
