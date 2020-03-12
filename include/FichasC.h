@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "NodoC.h"
 #include <sstream>
+#include "UsuariosA.h"
 using namespace std;
 
 class FichasC

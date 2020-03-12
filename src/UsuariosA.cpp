@@ -5,6 +5,9 @@ UsuariosA::UsuariosA()
     this->raiz = 0;
     this->dibujo = "";
 }
+NodoB *UsuariosA::getRaiz(){
+    return this->raiz;
+}
 
 NodoB *UsuariosA::insertarAB(NodoB *raiz,string us){
     if(raiz==0){
@@ -38,6 +41,16 @@ string UsuariosA::inorder(){
     dibujo[t-3] = ';';
     dibujo[t-2] = '\n';
     return this->dibujo;
+}
+
+NodoB *UsuariosA::getJugador(string usuario){
+    NodoB *aux = this->raiz;
+    while(aux->getUsuario().compare(usuario)!=0){
+        if(aux->getUsuario().compare(usuario)>0) aux = aux->getIzq();
+        else aux = aux->getDer();
+        if(aux == 0)return 0;
+    }
+    return aux;
 }
 
 void UsuariosA::preorderAB(NodoB *raiz){

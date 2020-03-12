@@ -24,9 +24,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Archivo.h" />
+		<Unit filename="include/Casilla.h" />
 		<Unit filename="include/DiccionarioLDC.h" />
 		<Unit filename="include/FichasC.h" />
 		<Unit filename="include/FichasLD.h" />
+		<Unit filename="include/Menu.h" />
 		<Unit filename="include/NodoB.h" />
 		<Unit filename="include/NodoC.h" />
 		<Unit filename="include/NodoJL.h" />
@@ -38,10 +41,14 @@
 		<Unit filename="include/PuntajesL.h" />
 		<Unit filename="include/TableroMD.h" />
 		<Unit filename="include/UsuariosA.h" />
+		<Unit filename="json.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Archivo.cpp" />
+		<Unit filename="src/Casilla.cpp" />
 		<Unit filename="src/DiccionarioLDC.cpp" />
 		<Unit filename="src/FichasC.cpp" />
 		<Unit filename="src/FichasLD.cpp" />
+		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/NodoB.cpp" />
 		<Unit filename="src/NodoC.cpp" />
 		<Unit filename="src/NodoJL.cpp" />

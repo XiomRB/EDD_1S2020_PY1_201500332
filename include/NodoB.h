@@ -2,6 +2,8 @@
 #define NODOB_H
 #include <iostream>
 #include <string>
+#include "FichasLD.h"
+#include "PuntajesJugador.h"
 using namespace std;
 
 class NodoB
@@ -13,6 +15,8 @@ class NodoB
         NodoB *getIzq();
         NodoB *getDer();
         string getUsuario();
+        PuntajesJugador *puntaje;
+        FichasLD *fichas;
         virtual ~NodoB();
 
     protected:

@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include "FichasLD.h"
+
+
 using namespace std;
 
 class UsuariosA
@@ -17,12 +20,15 @@ class UsuariosA
         string dibujar();
         virtual ~UsuariosA();
         string dibujo;
+        NodoB *getRaiz();
+        NodoB *getJugador(string);
+
 
     protected:
 
     private:
-        NodoB *insertarAB(NodoB *,string);
         NodoB *raiz;
+        NodoB *insertarAB(NodoB *,string);
         void inorderAB(NodoB *);
         void preorderAB(NodoB *);
         void postorderAB(NodoB *);

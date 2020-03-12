@@ -1,17 +1,12 @@
 #include <iostream>
 #include <conio.h>
-#include "UsuariosA.h"
+#include "Menu.h"
+
 using namespace std;
 
-UsuariosA t;
+Menu a;
 int main()
 {
-    t.insertar("gaby");
-    t.insertar("olga");
-    t.insertar("ana");
-    t.insertar("ale");
-    t.insertar("elias");
-    t.insertar("vicky");
-    cout<<t.dibujar();
+    a.inicio();
     return 0;
 }
