@@ -1,6 +1,6 @@
 #include "NodoM.h"
 
-NodoM::NodoM(int x,int y, char letra,int nn)
+NodoM::NodoM(int x,int y, char letra,int p)
 {
     this->abajo = 0;
     this->ant = 0;
@@ -9,7 +9,7 @@ NodoM::NodoM(int x,int y, char letra,int nn)
     this->x = x;
     this->y = y;
     this->letra = letra;
-    this->nn = nn;
+    this->nn = p;
 }
 
 NodoM *NodoM::getAnt(){

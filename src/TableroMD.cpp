@@ -3,7 +3,6 @@
 TableroMD::TableroMD()
 {
     this->raiz = new NodoM(-1,-1,'R',-1);
-    this->tam = 0;
 }
 
 NodoM *TableroMD::buscarCol(int x){
@@ -72,21 +71,18 @@ NodoM *TableroMD::insertarFila(NodoM *nuevo,NodoM *cabezafila){
 
 NodoM *TableroMD::crearCol(int x){
     NodoM *cabezacol = this->raiz;
-    NodoM *col = insertarCol(new NodoM(x,-1,'C',this->tam),cabezacol);
-    this->tam ++;
+    NodoM *col = insertarCol(new NodoM(x,-1,'C',-1),cabezacol);
     return col;
 }
 
 NodoM *TableroMD::crearFila(int y){
     NodoM *cabezafila = this->raiz;
-    NodoM *fila = insertarFila(new NodoM(-1,y,'F',this->tam),cabezafila);
-    this->tam++;
+    NodoM *fila = insertarFila(new NodoM(-1,y,'F',-1),cabezafila);
     return fila;
 }
 
-void TableroMD::insertar(int x,int y, char letra){
-    NodoM *nuevo = new NodoM(x,y,letra,this->tam);
-    this->tam++;
+void TableroMD::insertar(int x,int y, char letra,int p){
+    NodoM *nuevo = new NodoM(x,y,letra,p); //coordenada x,y letra y punteo de letra
     NodoM *nodocol = this->buscarCol(x);
     NodoM *nodofila = this->buscarFila(y);
     if(nodocol == 0 && nodofila == 0){
@@ -123,19 +119,21 @@ NodoM *TableroMD::eliminar(int x,int y){
     return 0;
 }
 
+
+
 string TableroMD::dibujar(){
     NodoM *aux = this->raiz;
-    string dibujo = "";
+    string dibujo = "graph[nodesep = 0.5]\nnode [shape = box];\n";
     string lineal = "{ rank = same ";
     lineal += "\"Matriz\" ";
     while(aux->getSig()!=0){
         aux = aux->getSig();
-        dibujo += this->intCadena(aux->nn) + " [label = \"" + this->intCadena(aux->getX()) + "\"];\n";
+        dibujo += "\"" +  this->intCadena(aux->getX()) + "," + this->intCadena(aux->getY()) + "\"" + " [label = \"" + this->intCadena(aux->getX()) + "\"];\n";
     }
     aux = this->raiz;
     while(aux->getAbajo()!=0){
         aux = aux->getAbajo();
-        dibujo += this->intCadena(aux->nn) + " [label = \"" + this->intCadena(aux->getY()) + "\"];\n";
+        dibujo += "\"" +  this->intCadena(aux->getX()) + "," + this->intCadena(aux->getY()) + "\"" + " [label = \"" + this->intCadena(aux->getY()) + "\"];\n";
     }
     aux = this->raiz;
     while(aux->getAbajo()!=0){
@@ -143,7 +141,7 @@ string TableroMD::dibujar(){
         NodoM *aux3 = aux;
         while(aux3->getSig()!=0){
             aux3 = aux3->getSig();
-            dibujo += this->intCadena(aux3->nn) + " [label = \"" + this->intCadena(aux3->getLetra()) + "\"];\n";
+            dibujo += "\"" +  this->intCadena(aux3->getX()) + "," + this->intCadena(aux3->getY()) + "\"" + " [label = \"" + this->intCadena(aux3->getLetra()) + "\"];\n";
         }
     }
     //cabecera X
@@ -151,33 +149,25 @@ string TableroMD::dibujar(){
     dibujo += "\"Matriz\"";
     while(aux->getSig() != 0){
         aux =aux->getSig();
-        dibujo += " -> " + this->intCadena(aux->nn);
-        lineal += this->intCadena(aux->nn) + " ";
+        dibujo += " -> \"" + this->intCadena(aux->getX()) + "," + this->intCadena(aux->getY()) + "\"";
+        lineal += "\"" + this->intCadena(aux->getX()) + "," + this->intCadena(aux->getY()) + "\"" + " ";
     }
     lineal += "}";
-    while(aux->getAnt()->getAnt() != 0){
-        aux = aux->getAnt();
-        dibujo += " -> " + this->intCadena(aux->nn);
-    }
-    dibujo += " -> \"Matriz\";\n";
+    dibujo += " [dir = both];\n";
     dibujo += lineal + "\n";
     lineal = "{ rank = same ";
     //filas
     aux = this->raiz->getAbajo();
     while(aux!=0){
-        dibujo += this->intCadena(aux->nn);
-        lineal += this->intCadena(aux->nn);
+        dibujo += "\"" + this->intCadena(aux->getX()) + "," + this->intCadena(aux->getY()) + "\"";
+        lineal += "\"" + this->intCadena(aux->getX()) + "," + this->intCadena(aux->getY()) + "\"";
         NodoM *aux1 = aux;
         while(aux1->getSig()!=0){
             aux1 = aux1->getSig();
-            dibujo += " -> " + this->intCadena(aux1->nn);
-            lineal += " " + this->intCadena(aux1->nn);
+            dibujo += " -> \"" + this->intCadena(aux1->getX()) + "," + this->intCadena(aux1->getY()) + "\"";
+            lineal += " \"" + this->intCadena(aux1->getX()) + "," + this->intCadena(aux1->getY()) + "\"";
         }
-        while(aux1->getAnt()->getAnt()!=0){
-            aux1 = aux1->getAnt();
-            dibujo += " -> " + this->intCadena(aux1->nn);
-        }
-        dibujo += " -> " + this->intCadena(aux->nn) + ";\n";
+        dibujo += " [dir = both];\n";
         lineal += " }";
         dibujo += lineal + "\n";
         lineal = "{rank = same ";
@@ -188,27 +178,23 @@ string TableroMD::dibujar(){
     dibujo += "\"Matriz\"";
     while(aux->getAbajo() !=0){
         aux = aux->getAbajo();
-        dibujo += " -> " + this->intCadena(aux->nn);
+        dibujo += " -> \"" + this->intCadena(aux->getX()) + "," + this->intCadena(aux->getY()) + "\"";
     }
-    while(aux->getArriba()->getArriba() !=0){
-        aux = aux->getArriba();
-        dibujo += " -> " + this->intCadena(aux->nn);
-    }
-    dibujo += " -> \"Matriz\";\n";
+    dibujo += " [dir = both];\n";
     //columnas
     aux = this->raiz->getSig();
     while(aux!=0){
-        dibujo += this->intCadena(aux->nn);
+        dibujo += "\"" + this->intCadena(aux->getX()) + "," + this->intCadena(aux->getY()) + "\"";
         NodoM *aux2 = aux;
         while(aux2->getAbajo()!=0){
             aux2 = aux2->getAbajo();
-            dibujo += " -> " + this->intCadena(aux2->nn);
+            dibujo += " -> \"" + this->intCadena(aux2->getX()) + "," + this->intCadena(aux2->getY()) + "\"";
         }
         while(aux2->getArriba()->getArriba()!=0){
             aux2 = aux2->getArriba();
-            dibujo += " -> " + this->intCadena(aux2->nn);
+            dibujo += " -> \"" + this->intCadena(aux2->getX()) + "," + this->intCadena(aux2->getY()) + "\"";
         }
-        dibujo += " -> " + this->intCadena(aux->nn) + ";\n";
+        dibujo += " -> \"" + this->intCadena(aux->getX()) + "," + this->intCadena(aux->getY()) + "\"" + ";\n";
         aux = aux->getSig();
     }
     return dibujo;

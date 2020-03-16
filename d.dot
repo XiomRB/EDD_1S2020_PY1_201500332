@@ -1,8 +1,0 @@
-digraph g{
-"gaby" -> "ana";
-"gaby" -> "olga";
-"ana" -> "ale";
-"ana" -> "elias";
-"olga" -> "vicky";
-
-}

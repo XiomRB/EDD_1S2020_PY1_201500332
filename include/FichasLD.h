@@ -10,8 +10,8 @@ class FichasLD
 {
     public:
         FichasLD();
-        void insertar(int,char);
-        NodoLD *eliminar(int);
+        void insertar(int,char,string);
+        NodoLD *eliminar(char);
         void modificar(int,char,int);
         string dibujar();
         string intCadena(int);

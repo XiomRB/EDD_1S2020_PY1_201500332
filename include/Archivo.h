@@ -6,6 +6,8 @@
 #include <string>
 #include "../json.hpp"
 #include "Casilla.h"
+#include "DiccionarioLDC.h"
+#include <vector>
 
 using namespace std;
 using Json = nlohmann::json;
@@ -17,8 +19,8 @@ class Archivo
         virtual ~Archivo();
         Json getJson(string);
         int dimension;
-        string *dic;
-        Casilla casillas[30];
+        DiccionarioLDC *dic;
+        vector<Casilla *> casillas;
         void cargarData(string);
     protected:
 

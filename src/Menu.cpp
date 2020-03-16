@@ -3,8 +3,7 @@
 Menu::Menu()
 {
     this->configurado = false;
-    this->fichasjuego = new FichasC();
-    this->arch = new Archivo();
+    this->juego = new Juego();
     this->usuarios = new UsuariosA();
 }
 
@@ -23,7 +22,7 @@ void Menu::inicio(){
             case 2:
                 if(configurado){
                     this->pedirJugadores();
-                    this->fichasjuego->crearCola();
+                    this->juego->fichasglobal->crearCola();
                     this->jugar();
                 }else {
                     system("cls");
@@ -54,7 +53,7 @@ void Menu::configurar(){
     cout<< "Escriba el nombre del archivo de configuracion"<<endl;
     getline(cin,ruta);
     getline(cin,ruta);
-    this->arch->cargarData(ruta);
+    this->juego->archi->cargarData(ruta);
     this->configurado = true;
     char i;
         cout<<"Presione cualquier tecla volver al menu de juego"<<endl;
@@ -65,6 +64,7 @@ void Menu::configurar(){
 void Menu::jugar(){
     cout<<"Jugadores cargados"<<endl;
 }
+
 void Menu::pedirJugadores(){
     system("cls");
     string j;
@@ -84,9 +84,9 @@ void Menu::pedirJugadores(){
             cout<<"Presione cualquier tecla para volver"<<endl;
             cin>>l;
             this->inicio();
-        }else this->jugador1 = this->usuarios->getJugador(usuario1);
-        if(this->jugador1 == 0) cout<< "El jugador no existe"<<endl;
-    }while(this->jugador1==0);
+        }else this->juego->j1 = this->usuarios->getJugador(usuario1);
+        if(this->juego->j1 == 0) cout<< "El jugador no existe"<<endl;
+    }while(this->juego->j1==0);
     system("cls");
     do{
         j = "";
@@ -96,8 +96,8 @@ void Menu::pedirJugadores(){
         for(short i = 0; i <j.size(); i++){
             usuario2  += toupper(j[i]);
         }
-        if(usuario2.compare(usuario1) != 0) this->jugador2 = this->usuarios->getJugador(usuario2);
-    }while(this->jugador2==0);
+        if(usuario2.compare(usuario1) != 0) this->juego->j2 = this->usuarios->getJugador(usuario2);
+    }while(this->juego->j2==0);
 }
 
 void Menu::crearUsuario(){

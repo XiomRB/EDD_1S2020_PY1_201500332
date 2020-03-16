@@ -29,6 +29,7 @@
 		<Unit filename="include/DiccionarioLDC.h" />
 		<Unit filename="include/FichasC.h" />
 		<Unit filename="include/FichasLD.h" />
+		<Unit filename="include/Juego.h" />
 		<Unit filename="include/Menu.h" />
 		<Unit filename="include/NodoB.h" />
 		<Unit filename="include/NodoC.h" />
@@ -48,6 +49,7 @@
 		<Unit filename="src/DiccionarioLDC.cpp" />
 		<Unit filename="src/FichasC.cpp" />
 		<Unit filename="src/FichasLD.cpp" />
+		<Unit filename="src/Juego.cpp" />
 		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/NodoB.cpp" />
 		<Unit filename="src/NodoC.cpp" />

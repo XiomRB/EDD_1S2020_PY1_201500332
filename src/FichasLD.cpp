@@ -6,8 +6,8 @@ FichasLD::FichasLD()
     this->primero = 0;
 }
 
-void FichasLD::insertar(int punteo,char letra){
-    NodoLD *nuevo = new NodoLD(letra,punteo);
+void FichasLD::insertar(int punteo,char letra,string jugador){
+    NodoLD *nuevo = new NodoLD(letra,punteo,jugador);
     if(this->primero ==0) {
         this->primero = nuevo;
         this->ultimo = nuevo;
@@ -19,13 +19,11 @@ void FichasLD::insertar(int punteo,char letra){
     }
 }
 
-NodoLD *FichasLD::eliminar(int n){
+NodoLD *FichasLD::eliminar(char n){
     if(this->primero!=0){
         NodoLD *aux = this->primero;
-        int i = 0;
-        while(i<n){
+        while(n != aux->getLetra()){
             aux = aux->getSig();
-            i++;
         }
         aux->getAnt()->setSig(aux->getSig());
         aux->getSig()->setAnt(aux->getAnt());

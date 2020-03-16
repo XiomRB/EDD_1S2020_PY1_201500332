@@ -10,7 +10,7 @@ class TableroMD
 {
     public:
         TableroMD();
-        void insertar(int,int,char);
+        void insertar(int,int,char,int);
         NodoM *eliminar(int,int);
         string dibujar();
         virtual ~TableroMD();
@@ -26,7 +26,6 @@ class TableroMD
         template <class T>
         string intCadena(T);
         NodoM *raiz;
-        int tam;
 };
 
 #endif // TABLEROMD_H

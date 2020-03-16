@@ -2,7 +2,7 @@
 
 Archivo::Archivo()
 {
-    this->dic = new string[30];
+    this->dic = new DiccionarioLDC();
     this->dimension  = 0;
 }
 
@@ -42,22 +42,21 @@ Json Archivo::getJson(string ruta){
 }
 
 void Archivo::cargarData(string ruta){
-    int c;
+    int x, y;
     Json json1 = this->getJson(ruta);
     this->dimension = json1.at("dimension");
     for(int d = 0; d < json1.at("diccionario").size(); d++){
-        dic[d] = json1.at("diccionario")[d].at("palabra");
+        dic->insertar(json1.at("diccionario")[d].at("palabra"));
     }
-    for(c = 0; c <json1.at("casillas").at("dobles").size(); c++){
-        casillas[c].x = json1.at("casillas").at("dobles")[c].at("x");
-        casillas[c].y = json1.at("casillas").at("dobles")[c].at("y");
-        casillas[c].punteo = 2;
+    for(int c = 0; c <json1.at("casillas").at("dobles").size(); c++){
+        x = json1.at("casillas").at("dobles")[c].at("x");
+        y = json1.at("casillas").at("dobles")[c].at("y");
+        casillas.push_back(new Casilla(x,y,2));
     }
     for(int t = 0; t<json1.at("casillas").at("triples").size();t++){
-        casillas[c].x = json1.at("casillas").at("triples")[t].at("x");
-        casillas[c].y = json1.at("casillas").at("triples")[t].at("y");
-        casillas[c].punteo = 3;
-        c++;
+        x = json1.at("casillas").at("triples")[t].at("x");
+        y = json1.at("casillas").at("triples")[t].at("y");
+        casillas.push_back(new Casilla(x,y,3));
     }
     cout<<"Datos cargados con exito"<<endl;
 }

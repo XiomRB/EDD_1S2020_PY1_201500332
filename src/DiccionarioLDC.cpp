@@ -10,6 +10,10 @@ bool DiccionarioLDC::vacia(){
     if(this->primero==0) return true;
     else return false;
 }
+NodoLDC *DiccionarioLDC::getPrimero(){
+    return this->primero;
+}
+
 void DiccionarioLDC::insertar(string p){
     string palabra = "";
     for(short i = 0; i <p.size(); i++){

@@ -1,13 +1,16 @@
 #ifndef NODOLD_H
 #define NODOLD_H
-
+#include<string>
+#include<iostream>
+using namespace std;
 
 class NodoLD
 {
     public:
-        NodoLD(char,int);
+        NodoLD(char,int,string);
         int getPunteo();
         char getLetra();
+        string getJugador();
         void setPunteo(int);
         void setLetra(char);
         void setSig(NodoLD *);
@@ -19,6 +22,7 @@ class NodoLD
     protected:
 
     private:
+        string jugador;
         int punteo;
         char letra;
         NodoLD *sig;

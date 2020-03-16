@@ -16,6 +16,7 @@ class DiccionarioLDC
         bool buscar(string);
         string dibujarDiccionario();
         virtual ~DiccionarioLDC();
+        NodoLDC *getPrimero();
 
     protected:
 

@@ -1,11 +1,12 @@
 #include "NodoLD.h"
 
-NodoLD::NodoLD(char letra, int punteo)
+NodoLD::NodoLD(char letra, int punteo,string jugador)
 {
     this->sig = 0;
     this->ant = 0;
     this->letra = letra;
     this->punteo = punteo;
+    this->jugador = jugador;
 }
 
 NodoLD *NodoLD::getAnt(){
@@ -23,6 +24,11 @@ int NodoLD::getPunteo(){
 char NodoLD::getLetra(){
     return this->letra;
 }
+
+string NodoLD::getJugador(){
+    return this->jugador;
+}
+
 void NodoLD::setPunteo(int punteo){
     this->punteo = punteo;
 }
