@@ -34,6 +34,14 @@ NodoLD *FichasLD::eliminar(char n){
     return 0;
 }
 
+void FichasLD::mostrar(){
+    NodoLD *aux = this->primero;
+    while(aux!=0){
+        cout<< aux->getLetra() << " ";
+        aux = aux->getSig();
+    }
+}
+
 void FichasLD::modificar(int punteo,char letra,int n){
     if(this->primero!=0){
         NodoLD *aux = this->primero;

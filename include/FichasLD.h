@@ -15,6 +15,7 @@ class FichasLD
         void modificar(int,char,int);
         string dibujar();
         string intCadena(int);
+        void mostrar();
         virtual ~FichasLD();
 
     protected:
