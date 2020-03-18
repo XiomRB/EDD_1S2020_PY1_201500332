@@ -25,10 +25,15 @@ NodoLD *FichasLD::eliminar(char n){
         while(n != aux->getLetra()){
             aux = aux->getSig();
         }
-        aux->getAnt()->setSig(aux->getSig());
-        aux->getSig()->setAnt(aux->getAnt());
-        aux->setAnt(0);
-        aux->setSig(0);
+        if(aux == this->primero){
+            this->primero = aux->getSig();
+        }else if(aux == this->ultimo){
+            this->ultimo = aux->getAnt();
+            this->ultimo->setSig(0);
+        }else{
+            aux->getAnt()->setSig(aux->getSig());
+            aux->getSig()->setAnt(aux->getAnt());
+        }
         return aux;
     }
     return 0;
@@ -36,22 +41,28 @@ NodoLD *FichasLD::eliminar(char n){
 
 void FichasLD::mostrar(){
     NodoLD *aux = this->primero;
+    if(this->primero == 0) cout<<"No hay fichas"<<endl;
     while(aux!=0){
         cout<< aux->getLetra() << " ";
         aux = aux->getSig();
     }
 }
 
-void FichasLD::modificar(int punteo,char letra,int n){
+NodoLD *FichasLD::buscar(char letra){
     if(this->primero!=0){
         NodoLD *aux = this->primero;
-        int i = 0;
-        while(i<n){
-            aux = aux->getSig();
-            i++;
+        while(aux!=0){
+            if(aux->getLetra()==letra) return aux;
+            else aux = aux->getSig();
         }
-        aux->setLetra(letra);
-        aux->setPunteo(punteo);
+    }
+    return 0;
+}
+
+void FichasLD::modificar(int punteo,char letra,NodoLD *nodo){
+    if(nodo!=0){
+        nodo->setLetra(letra);
+        nodo->setPunteo(punteo);
     }
 }
 

@@ -12,8 +12,10 @@ class FichasC
 {
     public:
         FichasC();
-        void insertar(char,short);
+        void insertar(char,int);
         NodoC *eliminar();
+        void limpiar();
+        NodoC *getPrimero();
         void crearCola();
         string dibujar();
         virtual ~FichasC();

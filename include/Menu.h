@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
-#include "UsuariosA.h"
 #include "Juego.h"
 
 using namespace std;
@@ -12,7 +11,6 @@ class Menu
 {
     public:
         Menu();
-        UsuariosA *usuarios;
         Juego *juego;
         void pedirJugadores();
         bool configurado;

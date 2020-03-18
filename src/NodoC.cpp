@@ -1,13 +1,13 @@
 #include "NodoC.h"
 
-NodoC::NodoC(char letra,short punteo)
+NodoC::NodoC(char letra,int punteo)
 {
     this->letra = letra;
     this->sig = 0;
     this->punteo = punteo;
 }
 
-short NodoC::getPunteo(){
+int NodoC::getPunteo(){
     return this->punteo;
 }
 

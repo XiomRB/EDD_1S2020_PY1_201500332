@@ -6,7 +6,11 @@ FichasC::FichasC()
     this->ultimo = 0;
 }
 
-void FichasC:: insertar(char letra,short punteo){
+NodoC *FichasC::getPrimero(){
+    return this->primero;
+}
+
+void FichasC:: insertar(char letra,int punteo){
     NodoC *nuevo = new NodoC(letra,punteo);
     if(primero==0){
         this->primero = nuevo;
@@ -15,6 +19,9 @@ void FichasC:: insertar(char letra,short punteo){
         this->ultimo->setSig(nuevo);
         this->ultimo = nuevo;
     }
+}
+void FichasC::limpiar(){
+    this->primero = 0;
 }
 
 NodoC *FichasC::eliminar(){
@@ -133,9 +140,6 @@ void FichasC::crearCola(){
             rango[24]++;
             i++;
         }
-    }
-    for(int j =0; j < 25;j++){
-        cout<<rango[j]<<endl;
     }
 }
 template <class T>

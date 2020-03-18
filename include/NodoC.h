@@ -6,10 +6,10 @@ using namespace std;
 class NodoC
 {
     public:
-        NodoC(char,short);
+        NodoC(char,int);
         char getLetra();
         void setLetra(char);
-        short getPunteo();
+        int getPunteo();
         NodoC *getSig();
         void setSig(NodoC *);
         virtual ~NodoC();
@@ -19,7 +19,7 @@ class NodoC
     private:
         NodoC *sig;
         char letra;
-        short punteo;
+        int punteo;
 };
 
 #endif // NODOC_H

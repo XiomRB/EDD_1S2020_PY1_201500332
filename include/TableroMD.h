@@ -14,6 +14,8 @@ class TableroMD
         NodoM *eliminar(int,int);
         string dibujar();
         virtual ~TableroMD();
+        template <class T>
+        string intCadena(T);
     protected:
 
     private:
@@ -23,8 +25,6 @@ class TableroMD
         NodoM *crearFila(int);
         NodoM *insertarCol(NodoM *,NodoM *);
         NodoM *insertarFila(NodoM *,NodoM *);
-        template <class T>
-        string intCadena(T);
         NodoM *raiz;
 };
 

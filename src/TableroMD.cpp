@@ -108,10 +108,10 @@ NodoM *TableroMD::eliminar(int x,int y){
     NodoM *nodofila = this->buscarFila(y);
     while(nodofila!=0){
         if(nodofila->getX() == x){
+            if(nodofila->getSig()!=0) nodofila->getSig()->setAnt(nodofila->getAnt());
             nodofila->getAnt()->setSig(nodofila->getSig());
-            nodofila->getSig()->setAnt(nodofila->getAnt());
             nodofila->getArriba()->setAbajo(nodofila->getAbajo());
-            nodofila->getAbajo()->setArriba(nodofila->getArriba());
+            if(nodofila->getAbajo()!=0)nodofila->getAbajo()->setArriba(nodofila->getArriba());
             return nodofila;
         }
         nodofila = nodofila->getSig();
@@ -125,7 +125,7 @@ string TableroMD::dibujar(){
     NodoM *aux = this->raiz;
     string dibujo = "graph[nodesep = 0.5]\nnode [shape = box];\n";
     string lineal = "{ rank = same ";
-    lineal += "\"Matriz\" ";
+    lineal += "\"Tablero\" ";
     while(aux->getSig()!=0){
         aux = aux->getSig();
         dibujo += "\"" +  this->intCadena(aux->getX()) + "," + this->intCadena(aux->getY()) + "\"" + " [label = \"" + this->intCadena(aux->getX()) + "\"];\n";
@@ -146,7 +146,7 @@ string TableroMD::dibujar(){
     }
     //cabecera X
     aux = this->raiz;
-    dibujo += "\"Matriz\"";
+    dibujo += "\"Tablero\"";
     while(aux->getSig() != 0){
         aux =aux->getSig();
         dibujo += " -> \"" + this->intCadena(aux->getX()) + "," + this->intCadena(aux->getY()) + "\"";
@@ -175,7 +175,7 @@ string TableroMD::dibujar(){
     }
     //cabecera Y
     aux = this->raiz;
-    dibujo += "\"Matriz\"";
+    dibujo += "\"Tablero\"";
     while(aux->getAbajo() !=0){
         aux = aux->getAbajo();
         dibujo += " -> \"" + this->intCadena(aux->getX()) + "," + this->intCadena(aux->getY()) + "\"";
@@ -190,11 +190,10 @@ string TableroMD::dibujar(){
             aux2 = aux2->getAbajo();
             dibujo += " -> \"" + this->intCadena(aux2->getX()) + "," + this->intCadena(aux2->getY()) + "\"";
         }
-        while(aux2->getArriba()->getArriba()!=0){
+        while(aux2->getArriba()!=0){
             aux2 = aux2->getArriba();
             dibujo += " -> \"" + this->intCadena(aux2->getX()) + "," + this->intCadena(aux2->getY()) + "\"";
         }
-        dibujo += " -> \"" + this->intCadena(aux->getX()) + "," + this->intCadena(aux->getY()) + "\"" + ";\n";
         aux = aux->getSig();
     }
     return dibujo;

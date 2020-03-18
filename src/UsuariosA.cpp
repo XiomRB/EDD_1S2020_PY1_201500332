@@ -16,7 +16,7 @@ NodoB *UsuariosA::insertarAB(NodoB *raiz,string us){
     }else if(us.compare(raiz->getUsuario())<0){
         NodoB *aux = this->insertarAB(raiz->getIzq(),us);
         raiz->setIzq(aux);
-    }else{
+    }else if(us.compare(raiz->getUsuario())>0){
         NodoB *aux = this->insertarAB(raiz->getDer(),us);
         raiz->setDer(aux);
     }
@@ -35,6 +35,9 @@ void UsuariosA::inorderAB(NodoB *raiz){
     }
 }
 string UsuariosA::inorder(){
+    if(this->raiz==0){
+        return "";
+    }
     this->dibujo = "rankdir = LR;\nnode [shape = box];\n";
     this->inorderAB(this->raiz);
     int t = this->dibujo.size();
@@ -44,13 +47,17 @@ string UsuariosA::inorder(){
 }
 
 NodoB *UsuariosA::getJugador(string usuario){
-    NodoB *aux = this->raiz;
-    while(aux->getUsuario().compare(usuario)!=0){
-        if(aux->getUsuario().compare(usuario)>0) aux = aux->getIzq();
-        else aux = aux->getDer();
-        if(aux == 0)return 0;
+    if(this->raiz == 0){
+        return 0;
+    }else{
+        NodoB *aux = this->raiz;
+        while(aux->getUsuario().compare(usuario)!=0){
+            if(aux->getUsuario().compare(usuario)>0) aux = aux->getIzq();
+            else aux = aux->getDer();
+            if(aux == 0)return 0;
+        }
+        return aux;
     }
-    return aux;
 }
 
 void UsuariosA::preorderAB(NodoB *raiz){
@@ -61,6 +68,7 @@ void UsuariosA::preorderAB(NodoB *raiz){
 }
 
 string UsuariosA::preorder(){
+    if(this->raiz==0) return "";
     this->dibujo = "rankdir = LR;\nnode [shape = box];\n";
     this->preorderAB(this->raiz);
     int t = this->dibujo.size();
@@ -76,6 +84,7 @@ void UsuariosA::postorderAB(NodoB *raiz){
 }
 
 string UsuariosA::postorder(){
+    if(this->raiz==0) return "";
     this->dibujo = "rankdir = LR;\nnode [shape = box];\n";
     this->postorderAB(this->raiz);
     int t = this->dibujo.size();

@@ -58,12 +58,12 @@ string DiccionarioLDC::dibujarDiccionario(){
     stringstream s;
     int i = 0;
     string n="";
-    string dibujo = "node [shape = record];\n";
+    string dibujo = "rankdir = LR;\nnode [shape = box];\n";
     do{
         s.str("");
         s<<i;
         n = s.str();
-        dibujo += n + "[label = \"<f0>|<f1> " + aux->getDato() + "|<f2> \"" + ";\n";
+        dibujo += n + "[label = \"" +aux->getDato() + "\"];\n";
         aux = aux->getSig();
         i++;
     }while(aux != this->primero);

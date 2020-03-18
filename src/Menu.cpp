@@ -4,7 +4,6 @@ Menu::Menu()
 {
     this->configurado = false;
     this->juego = new Juego();
-    this->usuarios = new UsuariosA();
 }
 
 void Menu::inicio(){
@@ -22,7 +21,6 @@ void Menu::inicio(){
             case 2:
                 if(configurado){
                     this->pedirJugadores();
-                    this->juego->fichasglobal->crearCola();
                     this->jugar();
                 }else {
                     system("cls");
@@ -62,7 +60,9 @@ void Menu::configurar(){
 }
 
 void Menu::jugar(){
-    cout<<"Jugadores cargados"<<endl;
+    system("cls");
+    this->juego->Partida();
+    this->inicio();
 }
 
 void Menu::pedirJugadores(){
@@ -72,31 +72,33 @@ void Menu::pedirJugadores(){
     string usuario2;
     do{
         j = "";
+        usuario1 = "";
         fflush(stdin); //limpia el buffer
         cout<< "Elija jugador 1"<<endl;
         getline(cin,j);
         for(short i = 0; i <j.size(); i++){
             usuario1  += toupper(j[i]);
         }
-        if(this->usuarios->getRaiz()==0){
+        if(this->juego->usuarios->getRaiz()==0){
             char l;
             cout<<"Aun no hay usuarios creados, vuelva al menu, para crear uno nuevo"<<endl;
             cout<<"Presione cualquier tecla para volver"<<endl;
             cin>>l;
             this->inicio();
-        }else this->juego->j1 = this->usuarios->getJugador(usuario1);
+        }else this->juego->j1 = this->juego->usuarios->getJugador(usuario1);
         if(this->juego->j1 == 0) cout<< "El jugador no existe"<<endl;
     }while(this->juego->j1==0);
     system("cls");
     do{
         j = "";
+        usuario2 = "";
         fflush(stdin);
         cout<< "Elija jugador 2"<<endl;
         getline(cin,j);
         for(short i = 0; i <j.size(); i++){
             usuario2  += toupper(j[i]);
         }
-        if(usuario2.compare(usuario1) != 0) this->juego->j2 = this->usuarios->getJugador(usuario2);
+        if(usuario2.compare(usuario1) != 0) this->juego->j2 = this->juego->usuarios->getJugador(usuario2);
     }while(this->juego->j2==0);
 }
 
@@ -110,15 +112,19 @@ void Menu::crearUsuario(){
     for(short i = 0; i <u.size(); i++){
         usuario  += toupper(u[i]);
     }
-    this->usuarios->insertar(usuario);
-    cout<< "Usuario creado"<<endl;
+    if(this->juego->usuarios->getJugador(usuario)==0){
+        this->juego->usuarios->insertar(usuario);
+        cout<< "Usuario creado"<<endl;
+    }else cout<< "El usuario ya existe"<<endl;
     cout<< "Presione cualquier tecla para regresar"<<endl;
     cin>>u;
     this->inicio();
 }
 
 void Menu::reportar(){
-    cout<<"Holi";
+    this->juego->reportar();
+    this->inicio();
+
 }
 Menu::~Menu()
 {

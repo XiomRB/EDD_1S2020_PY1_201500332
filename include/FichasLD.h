@@ -12,7 +12,8 @@ class FichasLD
         FichasLD();
         void insertar(int,char,string);
         NodoLD *eliminar(char);
-        void modificar(int,char,int);
+        void modificar(int,char,NodoLD *);
+        NodoLD *buscar(char);
         string dibujar();
         string intCadena(int);
         void mostrar();
