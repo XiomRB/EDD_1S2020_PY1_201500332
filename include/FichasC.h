@@ -6,6 +6,7 @@
 #include "NodoC.h"
 #include <sstream>
 #include "UsuariosA.h"
+#include <time.h>
 using namespace std;
 
 class FichasC

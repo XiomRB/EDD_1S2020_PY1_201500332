@@ -2,6 +2,7 @@
 
 UsuariosA::UsuariosA()
 {
+    this->scoreboard = new PuntajesL();
     this->raiz = 0;
     this->dibujo = "";
 }
@@ -57,6 +58,19 @@ NodoB *UsuariosA::getJugador(string usuario){
             if(aux == 0)return 0;
         }
         return aux;
+    }
+}
+
+void UsuariosA::darScore(){
+    this->scoreboard->limpiar();
+    this->darScoreRec(this->raiz);
+}
+
+void UsuariosA::darScoreRec(NodoB *raiz){
+    if(raiz!=0){
+        this->darScoreRec(raiz->getIzq());
+        if(raiz->puntaje->getPrimero()!=0)this->scoreboard->insertar(raiz->puntaje->getPrimero()->getPunteo(),raiz->getUsuario());
+        this->darScoreRec(raiz->getDer());
     }
 }
 

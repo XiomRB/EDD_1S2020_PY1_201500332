@@ -11,6 +11,9 @@ string PuntajesJugador::intCadena(int n){
     s<<n;
     return s.str();
 }
+NodoJL *PuntajesJugador::getPrimero(){
+    return this->primero;
+}
 
 void PuntajesJugador::insertar(int punteo){
     NodoJL *nuevo = new NodoJL(punteo);
@@ -48,7 +51,7 @@ string PuntajesJugador::dibujar(){
         aux = aux->getSig();
         i++;
     }
-    dibujo += this->intCadena(i) + " -> NULL ;\n";
+    dibujo += this->intCadena(i) + ";\n";
     return dibujo;
 }
 

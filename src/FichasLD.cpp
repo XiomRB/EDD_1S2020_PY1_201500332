@@ -47,6 +47,9 @@ void FichasLD::mostrar(){
         aux = aux->getSig();
     }
 }
+void FichasLD::limpiar(){
+    this->primero = 0;
+}
 
 NodoLD *FichasLD::buscar(char letra){
     if(this->primero!=0){
@@ -66,6 +69,10 @@ void FichasLD::modificar(int punteo,char letra,NodoLD *nodo){
     }
 }
 
+NodoLD *FichasLD::getPrimero(){
+    return this->primero;
+}
+
 string FichasLD::dibujar(){
     string dibujo="rankdir = LR;\n";
     NodoLD *aux = this->primero;
@@ -82,7 +89,7 @@ string FichasLD::dibujar(){
         i++;
         aux = aux->getSig();
     }
-    dibujo += intCadena(i) + " -> NULL;\n";
+    dibujo += intCadena(i) + ";\n";
     return dibujo;
 }
 

@@ -18,6 +18,8 @@ class FichasLD
         string intCadena(int);
         void mostrar();
         virtual ~FichasLD();
+        NodoLD *getPrimero();
+        void limpiar();
 
     protected:
 

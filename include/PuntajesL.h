@@ -10,6 +10,7 @@ class PuntajesL
 {
     public:
         PuntajesL();
+        void limpiar();
         void insertar(int,string);
         string dibujar();
         NodoL *getPrimero();

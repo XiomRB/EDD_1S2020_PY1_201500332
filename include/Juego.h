@@ -19,7 +19,6 @@ class Juego
         int puntaje1;
         int puntaje2;
         void agregarFichas();
-        PuntajesL *scoreboard;
         void Partida();
         Juego();
         void jugar();

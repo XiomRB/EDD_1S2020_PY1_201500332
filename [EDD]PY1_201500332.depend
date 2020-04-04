@@ -1,0 +1,328 @@
+# depslib dependency file v1.0
+1584513983 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\main.cpp
+	<iostream>
+	<conio.h>
+	"Menu.h"
+
+1584511678 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\menu.h
+	<iostream>
+	<string>
+	<stdlib.h>
+	"Juego.h"
+
+1584549996 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\juego.h
+	"NodoB.h"
+	"FichasC.h"
+	"TableroMD.h"
+	"Archivo.h"
+	<vector>
+	"PuntajesL.h"
+	"UsuariosA.h"
+
+1583768595 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\nodob.h
+	<iostream>
+	<string>
+	"FichasLD.h"
+	"PuntajesJugador.h"
+
+1585961883 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\fichasld.h
+	<iostream>
+	"NodoLD.h"
+	<string>
+	<sstream>
+
+1584290384 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\nodold.h
+	<string>
+	<iostream>
+
+1584549120 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\puntajesjugador.h
+	"NodoJL.h"
+	<iostream>
+	<string>
+	<sstream>
+
+1583519639 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\nodojl.h
+	<iostream>
+
+1585323462 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\fichasc.h
+	<iostream>
+	<string>
+	<stdlib.h>
+	"NodoC.h"
+	<sstream>
+	"UsuariosA.h"
+	<time.h>
+
+1584463728 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\nodoc.h
+	<iostream>
+
+1584550850 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\usuariosa.h
+	"NodoB.h"
+	<iostream>
+	<string>
+	<sstream>
+	"FichasLD.h"
+	"PuntajesL.h"
+
+1584483924 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\tableromd.h
+	"NodoM.h"
+	<iostream>
+	<string>
+	<sstream>
+
+1583696367 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\nodom.h
+
+1584377890 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\archivo.h
+	<iostream>
+	<stdlib.h>
+	<fstream>
+	<string>
+	"../json.hpp"
+	"Casilla.h"
+	"DiccionarioLDC.h"
+	<vector>
+
+1583730792 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\json.hpp
+	<algorithm>
+	<cassert>
+	<ciso646>
+	<cstddef>
+	<functional>
+	<initializer_list>
+	<iosfwd>
+	<iterator>
+	<memory>
+	<numeric>
+	<string>
+	<utility>
+	<vector>
+	<utility>
+	<algorithm>
+	<array>
+	<ciso646>
+	<forward_list>
+	<iterator>
+	<map>
+	<string>
+	<tuple>
+	<type_traits>
+	<unordered_map>
+	<utility>
+	<valarray>
+	<exception>
+	<stdexcept>
+	<string>
+	<cstddef>
+	<utility>
+	<stdint.h>
+	<stdint.h>
+	<cstdlib>
+	<ciso646>
+	<cstddef>
+	<type_traits>
+	<ciso646>
+	<limits>
+	<type_traits>
+	<utility>
+	<iterator>
+	<type_traits>
+	<cstdint>
+	<map>
+	<memory>
+	<string>
+	<vector>
+	<array>
+	<ciso646>
+	<cstddef>
+	<cstdint>
+	<string>
+	<algorithm>
+	<ciso646>
+	<iterator>
+	<string>
+	<tuple>
+	<type_traits>
+	<utility>
+	<valarray>
+	<vector>
+	<cstddef>
+	<iterator>
+	<string>
+	<tuple>
+	<algorithm>
+	<array>
+	<cassert>
+	<cmath>
+	<cstddef>
+	<cstdint>
+	<cstdio>
+	<cstring>
+	<iterator>
+	<limits>
+	<string>
+	<utility>
+	<array>
+	<cassert>
+	<cstddef>
+	<cstdio>
+	<cstring>
+	<istream>
+	<iterator>
+	<memory>
+	<numeric>
+	<string>
+	<type_traits>
+	<utility>
+	<cassert>
+	<cstddef>
+	<string>
+	<utility>
+	<vector>
+	<cstdint>
+	<utility>
+	<string>
+	<array>
+	<clocale>
+	<cstddef>
+	<cstdio>
+	<cstdlib>
+	<initializer_list>
+	<string>
+	<utility>
+	<vector>
+	<cassert>
+	<cmath>
+	<cstdint>
+	<functional>
+	<string>
+	<utility>
+	<vector>
+	<cstddef>
+	<limits>
+	<ciso646>
+	<iterator>
+	<type_traits>
+	<cstddef>
+	<iterator>
+	<utility>
+	<algorithm>
+	<cassert>
+	<cctype>
+	<numeric>
+	<string>
+	<utility>
+	<vector>
+	<initializer_list>
+	<utility>
+	<algorithm>
+	<array>
+	<cstdint>
+	<cstring>
+	<limits>
+	<string>
+	<algorithm>
+	<cstddef>
+	<ios>
+	<iterator>
+	<memory>
+	<ostream>
+	<string>
+	<vector>
+	<algorithm>
+	<array>
+	<cassert>
+	<ciso646>
+	<clocale>
+	<cmath>
+	<cstddef>
+	<cstdint>
+	<cstdio>
+	<limits>
+	<string>
+	<type_traits>
+	<utility>
+	<array>
+	<cassert>
+	<ciso646>
+	<cmath>
+	<cstdint>
+	<cstring>
+	<limits>
+	<type_traits>
+
+1583767738 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\casilla.h
+
+1584293513 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\diccionarioldc.h
+	<NodoLDC.h>
+	<string>
+	<iostream>
+	<sstream>
+
+1583358191 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\nodoldc.h
+	<iostream>
+	<string>
+
+1584550063 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\puntajesl.h
+	"NodoL.h"
+	<iostream>
+	<string>
+	<sstream>
+
+1583520533 c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\include\nodol.h
+	<iostream>
+	<string>
+
+1584334023 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\archivo.cpp
+	"Archivo.h"
+
+1583767738 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\casilla.cpp
+	"Casilla.h"
+
+1585332591 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\fichasc.cpp
+	"FichasC.h"
+
+1585961883 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\fichasld.cpp
+	"FichasLD.h"
+
+1585628973 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\juego.cpp
+	"Juego.h"
+
+1584513341 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\menu.cpp
+	"Menu.h"
+
+1583768595 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\nodob.cpp
+	"NodoB.h"
+
+1584463728 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\nodoc.cpp
+	"NodoC.h"
+
+1583520420 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\nodojl.cpp
+	"NodoJL.h"
+
+1583520420 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\nodol.cpp
+	"NodoL.h"
+
+1584290387 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\nodold.cpp
+	"NodoLD.h"
+
+1583358391 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\nodoldc.cpp
+	"NodoLDC.h"
+
+1585432504 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\nodom.cpp
+	"NodoM.h"
+
+1584549120 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\puntajesjugador.cpp
+	"PuntajesJugador.h"
+
+1584550058 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\puntajesl.cpp
+	"PuntajesL.h"
+
+1585432504 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\tableromd.cpp
+	"TableroMD.h"
+
+1584551334 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\usuariosa.cpp
+	"UsuariosA.h"
+
+1584514551 source:c:\users\oliveira raymundo\documents\gaby\semestre6\edd20\lab\[edd]py1_201500332\src\diccionarioldc.cpp
+	"DiccionarioLDC.h"
+

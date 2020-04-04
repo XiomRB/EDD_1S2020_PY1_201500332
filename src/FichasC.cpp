@@ -37,7 +37,8 @@ void FichasC::crearCola(){
     char letras[25] = {'A','B','C','D','E','F','G','H','I','J','L','M','N','Ñ','O','P','Q','R','S','T','U','V','X','Y','Z'};
     int i =0;
     char l = ' ';
-    while(i <95){
+    srand(time(NULL));
+    while(i < 95){
         l = letras[rand()%25];
         if(l == 'A' && rango[0]<12){
             this->insertar(l,1);
@@ -150,14 +151,13 @@ string FichasC::intCad(T n){
     return s.str();
 }
 string FichasC::dibujar(){
-    string dibujo = "cola [shape = none, margin = 0, label=<";
-    dibujo += "\n <TABLE BORDER = \"0\" CELLBORDER = \"1\" CELLSPACING=\"0\"> \n";
+    string dibujo = "cola [shape = record, label=\"{";
     NodoC *aux = this->primero;
-    while(aux!=0){
-        dibujo += "<TR> <TD>" + this->intCad(aux->getLetra()) + ", " + this->intCad(aux->getPunteo()) + "</TD></TR>\n";
+    while(aux->getSig()!=0){
+        dibujo += this->intCad(aux->getLetra()) + ", " + this->intCad(aux->getPunteo()) + "|";
         aux = aux->getSig();
     }
-    dibujo += "</TABLE>>];\n";
+    dibujo += this->intCad(aux->getLetra()) + ", " + this->intCad(aux->getPunteo()) + "}\"];\n";
     return dibujo;
 }
 

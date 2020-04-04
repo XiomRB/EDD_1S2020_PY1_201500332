@@ -10,6 +10,7 @@ class PuntajesJugador
 {
     public:
         PuntajesJugador();
+        NodoJL *getPrimero();
         void insertar(int);
         string dibujar();
         string intCadena(int);

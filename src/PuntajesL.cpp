@@ -52,8 +52,12 @@ string PuntajesL::dibujar(){
         aux = aux->getSig();
         i++;
     }
-    dibujo += this->intCadena(i) + " -> NULL ;\n";
+    dibujo += this->intCadena(i) + ";\n";
     return dibujo;
+}
+
+void PuntajesL::limpiar(){
+    this->primero = 0;
 }
 PuntajesL::~PuntajesL()
 {

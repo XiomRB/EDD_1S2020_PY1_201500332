@@ -35,7 +35,6 @@ int NodoM::getX(){
 int NodoM::getY(){
     return this->y;
 }
-
 char NodoM::getLetra(){
     return this->letra;
 }

@@ -5,7 +5,6 @@ Juego::Juego()
     this->archi = new Archivo();
     this->usuarios = new UsuariosA();
     this->fichasglobal = new FichasC();
-    this->scoreboard = new PuntajesL();
     this->j1 = 0;
     this->j2 = 0;
     this->puntaje1 = 0;
@@ -82,8 +81,13 @@ void Juego::insertarFichas(int dim){
 
 void Juego::jugar(){
     system("cls");
-    if(turno1) cout<< "Turno " << j1->getUsuario()<<endl;
-        else cout<< "Turno " << j2->getUsuario()<<endl;
+    if(turno1){
+        cout<< "Turno " << j1->getUsuario()<<endl;
+        cout<< "Puntaje: " << this->puntaje1<<endl;
+    }else{
+        cout<< "Turno " << j2->getUsuario()<<endl;
+        cout<< "Puntaje: " << this->puntaje2<<endl;
+    }
     int op;
     cout<< "Desea 1) Intercambiar fichas    2) Crear palabra " <<endl;
     cin>>op;
@@ -92,7 +96,7 @@ void Juego::jugar(){
     }else{//juega palabra
         this->fichasjugadas.clear();
         do{
-            this->insertarFichas(this->archi->dimension);
+            this->insertarFichas(this->archi->dimension); //agrega fichas al tablero
             cout<< "Desea 1) Validar    2) Insertar Ficha"<<endl;
             cin>>op;
         }while(op == 2);//hasta que desee validar palabra
@@ -107,7 +111,6 @@ void Juego::jugar(){
             for(int i = 0; i<fichasjugadas.size();i++){
                 aux = fichasjugadas.at(i);
                 ficha = this->tablero->eliminar(aux->getX(),aux->getY()); //eliminacion de cada ficha colocado
-                cout<<aux->getLetra();
                 if(turno1) j1->fichas->insertar(ficha->nn,ficha->getLetra(),j1->getUsuario()); //devolucion de fichas al jugador
                 else j2->fichas->insertar(ficha->nn,ficha->getLetra(),j2->getUsuario());
             }
@@ -163,15 +166,31 @@ void Juego::agregarFichas(){
 }
 
 void Juego::Partida(){
+    this->j1->fichas->limpiar();
+    this->j2->fichas->limpiar();
     this->fichasglobal->limpiar();
     this->fichasglobal->crearCola();
     this->tablero = new TableroMD();
     this->darFichas();
+    this->puntaje1 = 0;
+    this->puntaje2 = 0;
+    Casilla *aux;
+    for(int i =0; i< this->archi->casillas.size();i++){
+        aux = this->archi->casillas.at(i);
+        this->tablero->insertar(aux->x,aux->y,'*',aux->punteo);
+    }
+    string dib = this->tablero->dibujar();
+    this->archi->graficar("tablero",dib);
     int op;
     do{
         system("cls");
-        if(turno1) cout<< "Turno " << j1->getUsuario()<<endl;
-        else cout<< "Turno " << j2->getUsuario()<<endl;
+        if(turno1){
+            cout<< "Turno " << j1->getUsuario()<<endl;
+            cout<< "Puntaje: " << this->puntaje1<<endl;
+        }else{
+            cout<< "Turno " << j2->getUsuario()<<endl;
+            cout<< "Puntaje: " << this->puntaje2<<endl;
+        }
         cout<< "Desea 1) Jugar    2) Terminar juego    3)Ver Reportes"<<endl;
         cin>>op;
         if(!this->fichasglobal->getPrimero()==0 && op ==1)this->jugar();
@@ -179,8 +198,17 @@ void Juego::Partida(){
             this->reportar();
         }else{
             op == 2;
+            char m;
+            system("cls");
+            if(this->puntaje1 > this->puntaje2) cout<< "Gana " << this->j1->getUsuario()<< " con " << this->puntaje1 << " puntos"<<endl;
+            else if(this->puntaje1 < this->puntaje2) cout<< "Gana " << this->j2->getUsuario()<< " con " << this->puntaje2 << " puntos"<<endl;
+            else cout<< "Empate " << " con " << this->puntaje1 << " puntos"<<endl;
             this->j1->puntaje->insertar(this->puntaje1);
             this->j2->puntaje->insertar(this->puntaje2);
+            this->j1 = 0;
+            this->j2 = 0;
+            cout<< "Presione cualquier tecla para regresar al menu"<<endl;
+            cin>>m;
         }
     }while(op==1 || op ==3);
 }
@@ -220,6 +248,7 @@ void Juego::reportar(){
     NodoB *jug;
     do{
         system("cls");
+        fflush(stdin);
         cout << "Que reporte desea ver? \n 1)Diccionario     2) Usuarios"<<endl;
         cout<< " 3)Scoreboard     4) Puntajes de un jugador "<<endl;
         cout<< " 5)Fichas de cada jugador    6) Fichas del juego"<<endl;
@@ -240,21 +269,26 @@ void Juego::reportar(){
                 }else cout<< "No hay usuarios agregados"<<endl;
                 break;
             case 3:
-                if(this->scoreboard->getPrimero()==0) cout<< "Aun no se han jugado partidas"<<endl;
+                this->usuarios->darScore();
+                if(this->usuarios->scoreboard->getPrimero()==0) cout<< "Aun no se han jugado partidas"<<endl;
                 else {
-                    reporte  = this->scoreboard->dibujar();
+                    reporte  = this->usuarios->scoreboard->dibujar();
                     this->archi->graficar("ScoreBoard",reporte);
                 }
                 break;
             case 4:
-                cout<< "Que jugador desea ver"<<endl;
+                fflush(stdin);
+                cout<< "Que jugador desea ver?"<<endl;
                 getline(cin,jugador);
                 jug = this->usuarios->getJugador(jugador);
                 if(jug == 0) cout<<"No existe ese usuario"<<endl;
-                else this->archi->graficar(jugador, jug->puntaje->dibujar());
+                else{
+                    if(jug->puntaje->getPrimero()==0) cout<<"El usuario no ha jugado ninguna partida"<<endl;
+                    else this->archi->graficar(jugador, jug->puntaje->dibujar());
+                }
                 break;
             case 5:
-                if(this->j1== 0 && this->j2 == 0) cout<< "No hay usuarios jugando";
+                if(this->j1== 0 && this->j2 == 0) cout<< "No hay usuarios jugando"<<endl;
                 else{
                     reporte = "Fichas" + j1->getUsuario();
                     this->archi->graficar(reporte,this->j1->fichas->dibujar());
@@ -271,6 +305,7 @@ void Juego::reportar(){
         cin>>op;
     }while(op==1);
 }
+
 
 Juego::~Juego()
 {

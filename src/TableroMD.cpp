@@ -30,6 +30,7 @@ NodoM *TableroMD::insertarCol(NodoM *nuevo,NodoM *cabezacol){
         if(aux->getX()==nuevo->getX()){
             aux->setY(nuevo->getY());
             aux->setLetra(nuevo->getLetra());
+            aux ->nn == nuevo->nn;
             return aux;
         } else if(aux->getX() > nuevo->getX()){
             nuevo->setSig(aux);
@@ -53,6 +54,7 @@ NodoM *TableroMD::insertarFila(NodoM *nuevo,NodoM *cabezafila){
         if(aux->getY()==nuevo->getY()){
             aux->setX(nuevo->getX());
             aux->setLetra(nuevo->getLetra());
+            aux ->nn == nuevo->nn;
             return aux;
         } else if(aux->getY() > nuevo->getY()){
             nuevo->setAbajo(aux);
@@ -190,10 +192,7 @@ string TableroMD::dibujar(){
             aux2 = aux2->getAbajo();
             dibujo += " -> \"" + this->intCadena(aux2->getX()) + "," + this->intCadena(aux2->getY()) + "\"";
         }
-        while(aux2->getArriba()!=0){
-            aux2 = aux2->getArriba();
-            dibujo += " -> \"" + this->intCadena(aux2->getX()) + "," + this->intCadena(aux2->getY()) + "\"";
-        }
+        dibujo += " [dir = both];\n";
         aux = aux->getSig();
     }
     return dibujo;

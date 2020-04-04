@@ -5,7 +5,7 @@
 #include <string>
 #include <sstream>
 #include "FichasLD.h"
-
+#include "PuntajesL.h"
 
 using namespace std;
 
@@ -13,6 +13,9 @@ class UsuariosA
 {
     public:
         UsuariosA();
+        PuntajesL *scoreboard;
+        void darScoreRec(NodoB *);
+        void darScore();
         void insertar(string);
         string inorder();
         string preorder();
